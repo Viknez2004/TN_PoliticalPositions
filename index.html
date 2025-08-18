@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Nadu Government - Political Positions</title>
+    <style>
+        :root {
+            --primary-color: #006747;
+            --secondary-color: #DAA520;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --hover-color: #004d32;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Introduction Section */
+        .intro-section {
+            background-color: white;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .intro-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .intro-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .position-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .position-card {
+            background-color: var(--light-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 0 4px 4px 0;
+            transition: transform 0.3s;
+        }
+        
+        .position-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .position-title {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .position-desc {
+            font-size: 0.95rem;
+            color: #555;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.tn.gov.in/sites/default/files/tamilnadu_map_0.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        /* Framed Card Styles */
+        .framed-card {
+            display: flex;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .framed-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+            flex: 0 0 300px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .framed-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+        
+        .card-subtitle {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .card-dates {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.3rem;
+        }
+        
+        .card-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-section h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-section ul {
+            padding-left: 1.2rem;
+        }
+        
+        .card-section li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .framed-card {
+                flex-direction: column;
+            }
+            
+            .card-image {
+                flex: 0 0 250px;
+            }
+            
+            .position-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem;
+            }
+            
+            .header {
+                padding: 3rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+        :root {
+            --primary-color: #006747;
+            --secondary-color: #DAA520;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --hover-color: #004d32;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        
+        /* Special Kamarajar Card */
+        .kamarajar-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .kamarajar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .kamarajar-image {
+            flex: 0 0 350px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .kamarajar-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .kamarajar-card:hover .kamarajar-image img {
+            transform: scale(1.05);
+        }
+        
+        .kamarajar-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        }
+        
+        .kamarajar-content {
+            flex: 1;
+            padding: 2.5rem;
+            position: relative;
+        }
+        
+        .kamarajar-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        
+        .kamarajar-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .kamarajar-subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .kamarajar-dates {
+            font-size: 1rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        .kamarajar-quote {
+            font-style: italic;
+            color: var(--primary-color);
+            padding: 1rem;
+            background-color: rgba(218, 165, 32, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            margin: 1.5rem 0;
+        }
+        
+        .kamarajar-section {
+            margin-bottom: 2rem;
+        }
+        
+        .kamarajar-section h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .kamarajar-section ul {
+            padding-left: 1.5rem;
+        }
+        
+        .kamarajar-section li {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            position: relative;
+        }
+        
+        .kamarajar-section li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .kamarajar-legacy {
+            background-color: rgba(0, 103, 71, 0.05);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .kamarajar-legacy h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 900px) {
+            .kamarajar-card {
+                flex-direction: column;
+            }
+            
+            .kamarajar-image {
+                flex: 0 0 300px;
+            }
+        }
+
+
+       .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        z-index: 99;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+    }
+    
+    .back-to-top:hover {
+        background-color: var(--hover-color);
+        transform: scale(1.1);
+    }
+    
+    .search-container {
+        margin-top: 1.5rem;
+        width: 100%;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .search-input {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border-radius: 30px;
+        border: none;
+        font-size: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .filter-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .filter-btn.active {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+    
+    .filter-btn:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .mode-toggle {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-left: 1rem;
+    }
+    
+    .nav-links a.active {
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+    
+    .nav-links a.active::after {
+        width: 100%;
+    }
+    
+    /* Dark mode styles */
+    body.dark-mode {
+        background-color: #121212;
+        color: #f0f0f0;
+    }
+    
+    body.dark-mode .intro-section,
+    body.dark-mode .framed-card,
+    body.dark-mode .kamarajar-card,
+    body.dark-mode .position-card {
+        background-color: #1e1e1e;
+        color: #f0f0f0;
+    }
+    
+    body.dark-mode .card-title,
+    body.dark-mode .kamarajar-title,
+    body.dark-mode .position-title,
+    body.dark-mode .section-title,
+    body.dark-mode .intro-title {
+        color: var(--secondary-color);
+    }
+    
+    body.dark-mode .card-section h3,
+    body.dark-mode .kamarajar-section h3 {
+        color: #f0f0f0;
+        border-bottom-color: #333;
+    }
+    
+    body.dark-mode .card-dates,
+    body.dark-mode .kamarajar-dates,
+    body.dark-mode .position-desc {
+        color: #aaa;
+    }
+    
+    /* Expanded card style */
+    .framed-card.expanded,
+    .kamarajar-card.expanded {
+        transform: scale(1.02);
+        z-index: 10;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">
+                <img style="border-radius:40px" src="assets/logo.jpg">
+                Tamil Nadu Government
+            </a>
+            <ul class="nav-links">
+                <li><a href="#chief-ministers">Chief Ministers</a></li>
+                <li><a href="#governors">Governors</a></li>
+                <li><a href="#deputy-cm">Deputy CM</a></li>
+                <li><a href="#ministers">Council of Ministers</a></li>
+                <li><a href="#others">Other Positions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+         <!-- Header -->
+    <header class="header">
+        <h1>Tamil Nadu Political Leaders</h1>
+        <p>Explore the roles, responsibilities, and contributions of Tamil Nadu's political leaders who have shaped the state's development</p>
+    </header>
+    
+
+
+    
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="intro-container">
+            <h2 class="intro-title">Tamil Nadu Political Positions Overview</h2>
+            <div class="position-grid">
+                <div class="position-card">
+                    <h3 class="position-title">Chief Minister</h3>
+                    <p class="position-desc">
+                        The elected head of government responsible for executive administration, policy implementation, 
+                        and overall governance of Tamil Nadu. Leads the Council of Ministers and represents the state 
+                        in national forums.
+                    </p>
+                </div>
+                
+                <div class="position-card">
+                    <h3 class="position-title">Governor</h3>
+                    <p class="position-desc">
+                        The constitutional head appointed by the President of India. Acts as the representative of the 
+                        central government, gives assent to bills, appoints the Chief Minister, and performs ceremonial 
+                        duties.
+                    </p>
+                </div>
+                
+                <div class="position-card">
+                    <h3 class="position-title">Deputy Chief Minister</h3>
+                    <p class="position-desc">
+                        Assists the Chief Minister in governance, often handling key portfolios. Acts as CM in their 
+                        absence and coordinates between different departments for smooth administration.
+                    </p>
+                </div>
+                
+                <div class="position-card">
+                    <h3 class="position-title">Council of Ministers</h3>
+                    <p class="position-desc">
+                        A team of ministers appointed by the Governor on advice of the CM. Each minister heads specific 
+                        departments (like Education, Health, Finance) and implements government policies in their domain.
+                    </p>
+                </div>
+                
+                <div class="position-card">
+                    <h3 class="position-title">Speaker of Legislative Assembly</h3>
+                    <p class="position-desc">
+                        Presides over assembly sessions, maintains order, interprets rules, and represents the legislative 
+                        assembly. Ensures proper conduct of business and parliamentary procedures.
+                    </p>
+                </div>
+                
+                <div class="position-card">
+                    <h3 class="position-title">Leader of Opposition</h3>
+                    <p class="position-desc">
+                        Leads the largest opposition party in the assembly. Provides constructive criticism of government 
+                        policies, represents alternative viewpoints, and holds the ruling party accountable.
+                    </p>
+                </div>
+                
+                <div class="position-card">
+                    <h3 class="position-title">Mayor</h3>
+                    <p class="position-desc">
+                        Elected head of municipal corporations (like Chennai). Oversees urban governance, infrastructure 
+                        development, and civic amenities in cities. Presides over corporation meetings.
+                    </p>
+                </div>
+                
+                <div class="position-card">
+                    <h3 class="position-title">Panchayat President</h3>
+                    <p class="position-desc">
+                        Heads village panchayats - the grassroots level of governance. Responsible for local development, 
+                        basic services, and implementing rural welfare schemes at the village level.
+                    </p>
+                </div>
+                
+                <div class="position-card">
+                    <h3 class="position-title">MLA (Member of Legislative Assembly)</h3>
+                    <p class="position-desc">
+                        Elected representatives of constituencies in the state assembly. Participate in lawmaking, 
+                        represent constituents' interests, and oversee government functioning in their areas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+                    
+
+
+    
+    <!-- Chief Ministers Section -->
+    <div class="container" id="chief-ministers">
+        <h2 class="section-title">Chief Ministers of Tamil Nadu</h2>
+
+
+            <div class="kamarajar-card">
+        <div class="kamarajar-image">
+            <img src="assets/kam.jpg" alt="Kamarajar">
+        </div>
+        <div class="kamarajar-content">
+            <div class="kamarajar-header">
+                <h1 class="kamarajar-title">Kumarasami Kamaraj</h1>
+                <p class="kamarajar-subtitle">Former Chief Minister of Tamil Nadu (1954-1963)</p>
+                <p class="kamarajar-dates">In office: 13 April 1954 - 2 October 1963</p>
+            </div>
+            
+            <p class="kamarajar-quote">
+                "Education is the manifestation of perfection already in man." - Kamarajar
+            </p>
+            
+            <div class="kamarajar-section">
+                <h3>Roles & Responsibilities as Chief Minister</h3>
+                <ul>
+                    <li>Served as the 3rd Chief Minister of Madras State (now Tamil Nadu)</li>
+                    <li>Led the state through a transformative period of development</li>
+                    <li>Implemented revolutionary education reforms</li>
+                    <li>Focused on rural development and poverty alleviation</li>
+                    <li>Strengthened the Congress party organization in South India</li>
+                    <li>Played key role in planning and industrial development</li>
+                </ul>
+            </div>
+            
+            <div class="kamarajar-section">
+                <h3>Contributions to Tamil Nadu's Development</h3>
+                <ul>
+                    <li><strong>Education Revolution:</strong> Introduced free and compulsory education up to 11th standard</li>
+                    <li><strong>Mid-day Meal Scheme:</strong> Pioneered the program to improve school attendance and nutrition</li>
+                    <li><strong>School Infrastructure:</strong> Established nearly 12,000 new schools during his tenure</li>
+                    <li><strong>Industrial Growth:</strong> Founded Neyveli Lignite Corporation and BHEL in Trichy</li>
+                    <li><strong>Irrigation Projects:</strong> Developed major dams and water systems including Manimuthar and Aarani River dams</li>
+                    <li><strong>Social Justice:</strong> Worked to uplift backward classes and promote social equality</li>
+                    <li><strong>Political Reforms:</strong> Known as "Kingmaker" for his role in national politics after resigning as CM</li>
+                </ul>
+            </div>
+            
+            <div class="kamarajar-legacy">
+                <h3>Enduring Legacy</h3>
+                <ul>
+                    <li>Known as the "Architect of Modern Tamil Nadu" for his transformative governance</li>
+                    <li>Awarded India's highest civilian honor Bharat Ratna posthumously in 1976</li>
+                    <li>His birthday (July 15) is celebrated as "Education Development Day" in Tamil Nadu</li>
+                    <li>The Kamarajar Port in Chennai is named in his honor</li>
+                    <li>His simple lifestyle and integrity earned him the title "Perunthalaivar" (Great Leader)</li>
+                    <li>His education policies made Tamil Nadu one of India's most literate states</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+        
+        <!-- CM 1 -->
+        <div class="framed-card" style="margin-top:40px">
+            <div class="card-image">
+                <img src="assets/stalin.jpg" alt="M.K. Stalin">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">M.K. Stalin</h2>
+                    <p class="card-subtitle">9th Chief Minister of Tamil Nadu</p>
+                    <p class="card-dates">In office: 7 May 2021 - Present</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Head of the state government and council of ministers</li>
+                        <li>Chief executive authority of Tamil Nadu</li>
+                        <li>Leader of the legislative assembly</li>
+                        <li>Responsible for overall development and governance</li>
+                        <li>Represents state in national and international forums</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Tamil Nadu's Development</h3>
+                    <ul>
+                        <li>Launched "Makkaludan Mudhalvar" scheme for public grievance redressal</li>
+                        <li>Implemented "Kalaignar's Breakfast Scheme" in government schools</li>
+                        <li>Initiated "Singara Chennai 2.0" for comprehensive urban development</li>
+                        <li>Established "Perasiriyar Anbazhagan Memorial Libraries" in all districts</li>
+                        <li>Introduced "Illam Thedi Kalvi" (Education at Doorstep) program</li>
+                        <li>Expanded healthcare infrastructure with new medical colleges</li>
+                        <li>Promoted industrial growth through investor-friendly policies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+         <!-- CM 2 -->
+        <div class="framed-card">
+            <div class="card-image">
+                <img src="assets/edapaadi.jpg" alt="Edappadi K. Palaniswami">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">Edappadi K. Palaniswami</h2>
+                    <p class="card-subtitle">8th Chief Minister of Tamil Nadu</p>
+                    <p class="card-dates">In office: 16 February 2017 - 6 May 2021</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Led the state government during challenging political transition</li>
+                        <li>Oversaw implementation of various welfare schemes</li>
+                        <li>Managed state finances and economic policies</li>
+                        <li>Coordinated disaster management during floods and cyclones</li>
+                        <li>Represented state in center-state relations</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Tamil Nadu's Development</h3>
+                    <ul>
+                        <li>Implemented "Amma Two Wheeler Scheme" for working women</li>
+                        <li>Launched "Kudimaramathu" scheme for water conservation</li>
+                        <li>Established 11 new government medical colleges</li>
+                        <li>Completed Chennai Metro Phase-I extension projects</li>
+                        <li>Initiated "Smart Cities" projects across Tamil Nadu</li>
+                        <li>Developed industrial corridors to boost manufacturing</li>
+                        <li>Enhanced road infrastructure across the state</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CM 3 -->
+        <div class="framed-card">
+            <div class="card-image">
+                <img src="assets/jl.jpg" alt="J. Jayalalithaa">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">J. Jayalalithaa</h2>
+                    <p class="card-subtitle">6th Chief Minister of Tamil Nadu</p>
+                    <p class="card-dates">In office: 23 May 2015 - 5 December 2016 (Final term)</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Six-time Chief Minister with transformative governance</li>
+                        <li>Champion of women's welfare and empowerment</li>
+                        <li>Pioneered numerous welfare schemes</li>
+                        <li>Strengthened state's financial position</li>
+                        <li>Modernized infrastructure and public services</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Tamil Nadu's Development</h3>
+                    <ul>
+                        <li>Launched revolutionary "Amma" welfare schemes including canteens, water, and pharmacies</li>
+                        <li>Implemented free laptop scheme for students</li>
+                        <li>Established 24×7 women helpline (181) for safety</li>
+                        <li>Initiated "Green Tamil Nadu Mission" for afforestation</li>
+                        <li>Pioneered "Vision 2023" document for comprehensive state development</li>
+                        <li>Developed Chennai's IT corridor and industrial infrastructure</li>
+                        <li>Enhanced power generation capacity to make TN power surplus</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Governors Section -->
+    <div class="container" id="governors">
+        <h2 class="section-title">Governors of Tamil Nadu</h2>
+        
+        <!-- Governor 1 -->
+        <div class="framed-card">
+            <div class="card-image">
+                <img src="assets/rn.jpg" alt="R.N. Ravi">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">R.N. Ravi</h2>
+                    <p class="card-subtitle">Current Governor of Tamil Nadu</p>
+                    <p class="card-dates">In office: 18 September 2021 - Present</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Constitutional head of the state</li>
+                        <li>Appoints the Chief Minister and council of ministers</li>
+                        <li>Summons and prorogues the legislative assembly</li>
+                        <li>Gives assent to bills passed by the legislature</li>
+                        <li>Chancellor of state universities</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Tamil Nadu's Development</h3>
+                    <ul>
+                        <li>Focus on improving higher education infrastructure</li>
+                        <li>Emphasis on Tamil language preservation and promotion</li>
+                        <li>Initiatives for tribal welfare in hill districts</li>
+                        <li>Promotion of state's cultural heritage and traditions</li>
+                        <li>Advocacy for cooperative federalism and center-state harmony</li>
+                        <li>Support for skill development and vocational training</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Governor 2 -->
+        <div class="framed-card">
+            <div class="card-image">
+                <img src="assets/Banwarilal Purohit.jpg" alt="Banwarilal Purohit">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">Banwarilal Purohit</h2>
+                    <p class="card-subtitle">Former Governor of Tamil Nadu</p>
+                    <p class="card-dates">In office: 6 October 2017 - 17 September 2021</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Conducted regular review meetings with district collectors</li>
+                        <li>Focused on education and skill development</li>
+                        <li>Promoted organic farming and sustainable agriculture</li>
+                        <li>Encouraged public participation in governance</li>
+                        <li>Facilitated center-state coordination</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Tamil Nadu's Development</h3>
+                    <ul>
+                        <li>Launched "Governor's Award" for best government schools</li>
+                        <li>Initiated "Coffee with Governor" public interaction program</li>
+                        <li>Promoted organic farming practices across the state</li>
+                        <li>Supported skill development initiatives for youth employment</li>
+                        <li>Facilitated investments in industrial and infrastructure projects</li>
+                        <li>Encouraged innovation and entrepreneurship in educational institutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Deputy CM Section -->
+    <div class="container" id="deputy-cm">
+        <h2 class="section-title">Deputy Chief Minister</h2>
+        
+        <div class="framed-card">
+            <div class="card-image">
+                <img src="assets/O. Panneerselvam.jpg" alt="O. Panneerselvam">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">O. Panneerselvam</h2>
+                    <p class="card-subtitle">Deputy Chief Minister of Tamil Nadu (2017-2021)</p>
+                    <p class="card-dates">In office: 21 August 2017 - 6 May 2021</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Assisted the Chief Minister in administration and governance</li>
+                        <li>Acted as Chief Minister in his absence</li>
+                        <li>Held key portfolios including Finance</li>
+                        <li>Coordinated between different government departments</li>
+                        <li>Represented the state at important national forums</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Tamil Nadu's Development</h3>
+                    <ul>
+                        <li>Implemented financial reforms to strengthen state economy</li>
+                        <li>Managed state finances effectively during COVID-19 pandemic</li>
+                        <li>Coordinated disaster relief efforts during natural calamities</li>
+                        <li>Maintained party unity and stability in AIADMK</li>
+                        <li>Represented state at NITI Aayog meetings</li>
+                        <li>Continued implementation of Amma welfare schemes</li>
+                        <li>Played key role in resolution of Jallikattu protests</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Council of Ministers Section -->
+    <div class="container" id="ministers">
+        <h2 class="section-title">Council of Ministers</h2>
+        
+        <!-- Minister 1 -->
+        <div class="framed-card">
+            <div class="card-image">
+                <img src="assets/Duraimurugan.jpg" alt="Duraimurugan">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">Duraimurugan</h2>
+                    <p class="card-subtitle">Minister for Water Resources</p>
+                    <p class="card-dates">In office: 2021 - Present</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Management and conservation of state's water resources</li>
+                        <li>Implementation of irrigation projects</li>
+                        <li>Resolution of inter-state water disputes</li>
+                        <li>Development of water infrastructure</li>
+                        <li>Drought management and mitigation</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Tamil Nadu's Development</h3>
+                    <ul>
+                        <li>Implemented Cauvery-Gundar river linking project</li>
+                        <li>Revived traditional water bodies and tanks across state</li>
+                        <li>Enhanced negotiations for inter-state water sharing</li>
+                        <li>Improved irrigation facilities for agricultural lands</li>
+                        <li>Developed sustainable water management policies</li>
+                        <li>Initiated flood prevention measures in vulnerable areas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Minister 2 -->
+        <div class="framed-card">
+            <div class="card-image">
+                <img src="assets/Thangam Thennarasu.jpg" alt="Thangam Thennarasu">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">Thangam Thennarasu</h2>
+                    <p class="card-subtitle">Minister for Finance & Human Resources</p>
+                    <p class="card-dates">In office: 2021 - Present</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Preparation and presentation of state budget</li>
+                        <li>Management of state finances and expenditures</li>
+                        <li>Taxation policies and revenue collection</li>
+                        <li>Economic planning and development</li>
+                        <li>Human resource management in government</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Tamil Nadu's Development</h3>
+                    <ul>
+                        <li>Presented growth-oriented budgets focusing on welfare</li>
+                        <li>Implemented fiscal reforms to strengthen state economy</li>
+                        <li>Enhanced revenue collection through efficient systems</li>
+                        <li>Streamlined government recruitment processes</li>
+                        <li>Initiated skill development programs for government employees</li>
+                        <li>Improved financial management systems in departments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other Positions Section -->
+    <div class="container" id="others">
+        <h2 class="section-title">Other Key Positions</h2>
+        
+        <!-- Speaker -->
+        <div class="framed-card">
+            <div class="card-image">
+                <img src="assets/M. Appavu.jpg" alt="M. Appavu">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">M. Appavu</h2>
+                    <p class="card-subtitle">Speaker of Tamil Nadu Legislative Assembly</p>
+                    <p class="card-dates">In office: 2021 - Present</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Presides over legislative assembly proceedings</li>
+                        <li>Maintains order and decorum in the house</li>
+                        <li>Interprets and applies assembly rules and procedures</li>
+                        <li>Represents the assembly in official functions</li>
+                        <li>Oversees legislative committee functions</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Tamil Nadu's Development</h3>
+                    <ul>
+                        <li>Ensured smooth functioning of democratic processes</li>
+                        <li>Maintained bipartisan decorum in legislative debates</li>
+                        <li>Enhanced legislative efficiency and productivity</li>
+                        <li>Facilitated constructive discussions on key issues</li>
+                        <li>Implemented digital initiatives in assembly functioning</li>
+                        <li>Promoted transparency in legislative proceedings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Opposition Leader -->
+        <div class="framed-card">
+            <div class="card-image">
+                <img src="assets/edapaadi.jpg" alt="Edappadi K. Palaniswami">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">Edappadi K. Palaniswami</h2>
+                    <p class="card-subtitle">Leader of Opposition</p>
+                    <p class="card-dates">In office: 2021 - Present</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Leads opposition in legislative assembly</li>
+                        <li>Provides constructive criticism of government policies</li>
+                        <li>Presents alternative viewpoints and solutions</li>
+                        <li>Represents opposition in important discussions</li>
+                        <li>Holds government accountable to the people</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Tamil Nadu's Development</h3>
+                    <ul>
+                        <li>Provided effective scrutiny of government policies</li>
+                        <li>Maintained strong opposition presence in legislature</li>
+                        <li>Highlighted key public issues and concerns</li>
+                        <li>Advocated for balanced regional development</li>
+                        <li>Ensured accountability in governance processes</li>
+                        <li>Proposed alternative development strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chennai Mayor -->
+        <div class="framed-card">
+            <div class="card-image">
+                <img src="assets/R. Priya.jpg" alt="R. Priya">
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="card-title">R. Priya</h2>
+                    <p class="card-subtitle">Mayor of Chennai</p>
+                    <p class="card-dates">In office: 2021 - Present</p>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Roles & Responsibilities</h3>
+                    <ul>
+                        <li>Head of Chennai Municipal Corporation</li>
+                        <li>Responsible for civic administration of Chennai</li>
+                        <li>Oversees urban infrastructure development</li>
+                        <li>Manages municipal services and utilities</li>
+                        <li>Represents city in official functions</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h3>Contributions to Chennai's Development</h3>
+                    <ul>
+                        <li>Implemented flood mitigation projects across city</li>
+                        <li>Enhanced solid waste management systems</li>
+                        <li>Improved public amenities and urban infrastructure</li>
+                        <li>Developed parks and recreational spaces</li>
+                        <li>Initiated smart city projects for urban transformation</li>
+                        <li>Improved road networks and traffic management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Tamil Nadu Government - Political Positions</p>
+        <p>© 2025 All Rights Reserved</p>
+        <p>Data sourced from official government records and public domain information</p>
+    </footer>
+
+    <script>
+        
+                 
+    // Document ready function
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without page reload
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
+        
+        // 2. Active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section[id], div[id]').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    const id = section.getAttribute('id');
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // 3. Back to top button
+        const backToTopButton = document.createElement('button');
+        backToTopButton.innerHTML = '↑';
+        backToTopButton.className = 'back-to-top';
+        document.body.appendChild(backToTopButton);
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        // 4. Card click effect - expand on click
+        document.querySelectorAll('.framed-card, .kamarajar-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Toggle expanded class
+                this.classList.toggle('expanded');
+                
+                // Close other expanded cards
+                document.querySelectorAll('.framed-card.expanded, .kamarajar-card.expanded').forEach(otherCard => {
+                    if (otherCard !== this) {
+                        otherCard.classList.remove('expanded');
+                    }
+                });
+            });
+        });
+        
+        // 5. Search functionality (simple implementation)
+        const searchInput = document.createElement('input');
+        searchInput.type = 'text';
+        searchInput.placeholder = 'Search leaders...';
+        searchInput.className = 'search-input';
+        
+        const searchContainer = document.createElement('div');
+        searchContainer.className = 'search-container';
+        searchContainer.appendChild(searchInput);
+        document.querySelector('.header').appendChild(searchContainer);
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            document.querySelectorAll('.framed-card, .kamarajar-card').forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                if (cardText.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // 6. Filter by position
+        const filterButtons = document.createElement('div');
+        filterButtons.className = 'filter-buttons';
+        filterButtons.innerHTML = `
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="chief-ministers">Chief Ministers</button>
+            <button class="filter-btn" data-filter="governors">Governors</button>
+            <button class="filter-btn" data-filter="deputy-cm">Deputy CM</button>
+            <button class="filter-btn" data-filter="ministers">Ministers</button>
+            <button class="filter-btn" data-filter="others">Others</button>
+        `;
+        document.querySelector('.header').appendChild(filterButtons);
+        
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                if (filter === 'all') {
+                    document.querySelectorAll('.framed-card, .kamarajar-card').forEach(card => {
+                        card.style.display = 'flex';
+                    });
+                } else {
+                    document.querySelectorAll('.framed-card, .kamarajar-card').forEach(card => {
+                        card.style.display = 'none';
+                    });
+                    
+                    const section = document.getElementById(filter);
+                    if (section) {
+                        section.querySelectorAll('.framed-card, .kamarajar-card').forEach(card => {
+                            card.style.display = 'flex';
+                        });
+                        
+                        // Scroll to section
+                        window.scrollTo({
+                            top: section.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // 7. Light/dark mode toggle
+        const modeToggle = document.createElement('button');
+        modeToggle.className = 'mode-toggle';
+        modeToggle.innerHTML = '🌙';
+        document.querySelector('.navbar-container').appendChild(modeToggle);
+        
+        modeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                this.innerHTML = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                this.innerHTML = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            modeToggle.innerHTML = '☀️';
+        }
+    });
+
+    </script>
+</body>
+</html>
